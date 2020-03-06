@@ -62,23 +62,17 @@ public class RestTemplateTest extends SimpleApplicationTests {
     @Test
     public void entity() {
 
-        String user = "2u3prjqk8t8n99enbdegvh4sw8356d8n";
-        String password = "etdufmb3e48y8p585sgh3gqyabegb6ht";
-        String userMsg = user + ":" + password;
-        String base64UserMsg = Base64.getEncoder().encodeToString(userMsg.getBytes());
-
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
 
-        headers.add(HttpHeaders.AUTHORIZATION, "Basic " + base64UserMsg);
+        headers.add(HttpHeaders.AUTHORIZATION, "OAuth kzvkr9gm72a5ug45");
 
         MultiValueMap<String, String> param = new LinkedMultiValueMap();
-        param.add("uuid", "c982e674-f4a8-4ac3-a892-44a1ef88a727");
-        param.add("type_name", "user");
+        param.add("attributes", "[\"primaryAddress\",\"uuid\"]");
 
         HttpEntity<MultiValueMap<String, String>> entity = new HttpEntity<>(param, headers);
         long start = System.currentTimeMillis();
-        ResponseEntity<String> responseEntity = restTemplate.exchange(url + "/access/getAccessToken", HttpMethod.POST
+        ResponseEntity<String> responseEntity = restTemplate.exchange(url + "/entity", HttpMethod.POST
                 , entity,
                 String.class);
         LOGGER.info("调用接口耗时={}ms",System.currentTimeMillis()-start);
