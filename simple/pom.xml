@@ -44,6 +44,28 @@
             <artifactId>httpclient</artifactId>
             <version>4.5.9</version>
         </dependency>
+        <dependency>
+            <groupId>org.redisson</groupId>
+            <artifactId>redisson</artifactId>
+            <version>3.11.5</version>
+        </dependency>
+        <!-- spring分布式锁 最新版要求redis4.0版本以上 -->
+        <dependency>
+            <!-- spring integration -->
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-integration</artifactId>
+        </dependency>
+        <dependency>
+            <!-- spring integration与redis结合，实现redis分布式锁 -->
+            <groupId>org.springframework.integration</groupId>
+            <artifactId>spring-integration-redis</artifactId>
+        </dependency>
+        <dependency>
+            <!-- redis -->
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+        <!-- spring分布式锁 -->
     </dependencies>
 
     <build>
