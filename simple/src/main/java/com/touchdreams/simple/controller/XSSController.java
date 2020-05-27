@@ -1,22 +1,25 @@
-package com.touchdreams.simple.contoller;
+package com.touchdreams.simple.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by jyh on 2020/5/12.
+ * Created by jinyh on 2020-5-14.
  */
 @RestController
-@RequestMapping("/redisson")
-public class RedissonController {
+@RequestMapping("/xss")
+public class XSSController {
 
     @RequestMapping("/test")
-    public Map<String, String> test1() {
+    public Map<String, String> test(HttpServletRequest request) {
+        String param = request.getParameter("param");
         Map<String, String> result = new HashMap<>();
         result.put("code", "success");
+        result.put("param", param);
         return result;
     }
 }

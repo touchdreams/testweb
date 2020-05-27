@@ -1,4 +1,4 @@
-package com.touchdreams.simple.contoller;
+package com.touchdreams.simple.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.integration.redis.util.RedisLockRegistry;
