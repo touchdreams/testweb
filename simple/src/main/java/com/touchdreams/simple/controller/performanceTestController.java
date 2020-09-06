@@ -1,4 +1,4 @@
-package com.touchdreams.simple.contoller;
+package com.touchdreams.simple.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

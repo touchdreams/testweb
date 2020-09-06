@@ -1,0 +1,2555 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://172.15.8.225:9011/interDmz/services/OrderEWS"
+                  xmlns:impl="http://172.15.8.225:9011/interDmz/services/OrderEWS"
+                  xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns1="urn:BeanService"
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema targetNamespace="http://172.15.8.225:9011/interDmz/services/OrderEWS" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="urn:BeanService"/>
+   <import namespace="http://xml.apache.org/xml-soap"/>
+   <import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+   <complexType name="ArrayOf_xsd_anyType">
+    <complexContent>
+     <restriction base="soapenc:Array">
+      <attribute ref="soapenc:arrayType" wsdl:arrayType="xsd:anyType[]"/>
+     </restriction>
+    </complexContent>
+   </complexType>
+  </schema>
+  <schema targetNamespace="http://xml.apache.org/xml-soap" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://172.15.8.225:9011/interDmz/services/OrderEWS"/>
+   <import namespace="urn:BeanService"/>
+   <import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+   <complexType name="Vector">
+    <sequence>
+     <element maxOccurs="unbounded" minOccurs="0" name="item" type="xsd:anyType"/>
+    </sequence>
+   </complexType>
+  </schema>
+  <schema targetNamespace="urn:BeanService" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://172.15.8.225:9011/interDmz/services/OrderEWS"/>
+   <import namespace="http://xml.apache.org/xml-soap"/>
+   <import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+   <complexType name="CallFuncInfoA">
+    <sequence>
+     <element name="funcCode" nillable="true" type="xsd:string"/>
+     <element name="moduleCode" nillable="true" type="xsd:string"/>
+     <element name="moduleObjectId" nillable="true" type="xsd:long"/>
+     <element name="moduleObjectName" nillable="true" type="xsd:string"/>
+     <element name="serverAddess" nillable="true" type="xsd:string"/>
+     <element name="staffId" nillable="true" type="xsd:long"/>
+     <element name="staffIp" nillable="true" type="xsd:string"/>
+     <element name="staffName" nillable="true" type="xsd:string"/>
+     <element name="staffPartnerInfoId" nillable="true" type="xsd:long"/>
+     <element name="staffPartnerInfoName" nillable="true" type="xsd:string"/>
+     <element name="staffPartnerInfoSeq" nillable="true" type="xsd:long"/>
+     <element name="staffSeq" nillable="true" type="xsd:long"/>
+     <element name="staffWorkflowGroupIds" nillable="true" type="impl:ArrayOf_xsd_anyType"/>
+     <element name="uuid" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="doJdCallBackRequest">
+
+      <wsdl:part name="callFuncInfoA" type="tns1:CallFuncInfoA">
+
+      </wsdl:part>
+
+      <wsdl:part name="orderId" type="xsd:string">
+
+      </wsdl:part>
+
+      <wsdl:part name="phone" type="xsd:string">
+
+      </wsdl:part>
+
+      <wsdl:part name="cmtId" type="xsd:string">
+
+      </wsdl:part>
+
+      <wsdl:part name="bookTime" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="completeCallbackSmsRequest">
+
+      <wsdl:part name="requestXml" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="queryActivityConfigRequest">
+
+      <wsdl:part name="requestXml" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="queryAddressAscriptionRequest">
+
+      <wsdl:part name="requestXml" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="offlineOrderCallbackResponse">
+
+      <wsdl:part name="offlineOrderCallbackReturn" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="doTbFetchPhotoRequest">
+
+      <wsdl:part name="callFuncInfoA" type="tns1:CallFuncInfoA">
+
+      </wsdl:part>
+
+      <wsdl:part name="orderId" type="xsd:string">
+
+      </wsdl:part>
+
+      <wsdl:part name="index" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="queryIdcardAscriptionRequest">
+
+      <wsdl:part name="requestXml" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="orderupdateResponse">
+
+      <wsdl:part name="orderupdateReturn" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="queryAddressAscriptionResponse">
+
+      <wsdl:part name="queryAddressAscriptionReturn" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="makeupActivateInfoRequest">
+
+      <wsdl:part name="requestXml" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="checkActivateVCardRequest">
+
+      <wsdl:part name="requestXml" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="idCardUrlQueryResponse">
+
+      <wsdl:part name="idCardUrlQueryReturn" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="checkKDPayRecordRequest">
+
+      <wsdl:part name="requestXml" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="doActivityRecordRequest">
+
+      <wsdl:part name="requestXml" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="qryOfferDetailListRequest">
+
+      <wsdl:part name="requestXml" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="scanOrderQueryResponse">
+
+      <wsdl:part name="scanOrderQueryReturn" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="queryusercardResponse">
+
+      <wsdl:part name="queryusercardReturn" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="bwtYxIntSenceListResponse">
+
+      <wsdl:part name="bwtYxIntSenceListReturn" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="makeupActivateInfoCheckResponse">
+
+      <wsdl:part name="makeupActivateInfoCheckReturn" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="factorOrderQueryResponse">
+
+      <wsdl:part name="factorOrderQueryReturn" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="checkActivateVCardResponse">
+
+      <wsdl:part name="checkActivateVCardReturn" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="routeQueryResponse">
+
+      <wsdl:part name="routeQueryReturn" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="doActivityRecordResponse">
+
+      <wsdl:part name="doActivityRecordReturn" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="syncPayInfoRequest">
+
+      <wsdl:part name="requestXml" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="idCardUrlUploadResponse">
+
+      <wsdl:part name="idCardUrlUploadReturn" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="smsordersendRequest">
+
+      <wsdl:part name="requestXml" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="doJdCallBackResponse">
+
+      <wsdl:part name="doJdCallBackReturn" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="completeSmsRequest">
+
+      <wsdl:part name="requestXml" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="checkKDPayRecordResponse">
+
+      <wsdl:part name="checkKDPayRecordReturn" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="httpInterfaceOfGetRequest">
+
+      <wsdl:part name="requestXml" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="installDeliveryQueryResponse">
+
+      <wsdl:part name="installDeliveryQueryReturn" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="activatecardsUpdateResponse">
+
+      <wsdl:part name="activatecardsUpdateReturn" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="bwtYxIntSenceListRequest">
+
+      <wsdl:part name="requestXml" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="queryAccnbrAscriptionRequest">
+
+      <wsdl:part name="requestXml" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="orderupdateRequest">
+
+      <wsdl:part name="requestXml" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="orderquerysimpleRequest">
+
+      <wsdl:part name="requestXml" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="broadBandCallbackRequest">
+
+      <wsdl:part name="requestXml" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="makeupActivateInfoResponse">
+
+      <wsdl:part name="makeupActivateInfoReturn" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="queryActivityConfigResponse">
+
+      <wsdl:part name="queryActivityConfigReturn" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="checkOfferDetailRequest">
+
+      <wsdl:part name="requestXml" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="installDeliveryUpdateResponse">
+
+      <wsdl:part name="installDeliveryUpdateReturn" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="doTbFetchPhotoResponse">
+
+      <wsdl:part name="doTbFetchPhotoReturn" type="xsd:long">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="syncPaymentRecordResponse">
+
+      <wsdl:part name="syncPaymentRecordReturn" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="robotOrderCallbackRequest">
+
+      <wsdl:part name="requestXml" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="queryusercardRequest">
+
+      <wsdl:part name="requestXml" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="idCardUrlUploadRequest">
+
+      <wsdl:part name="requestXml" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="scanOrderQueryRequest">
+
+      <wsdl:part name="requestXml" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="intentionGatherRequest">
+
+      <wsdl:part name="requestXml" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="orderAndBossIdenticalResponse">
+
+      <wsdl:part name="orderAndBossIdenticalReturn" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="ordervalidateResponse">
+
+      <wsdl:part name="ordervalidateReturn" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="queryAccnbrAscriptionResponse">
+
+      <wsdl:part name="queryAccnbrAscriptionReturn" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="activatecardsQueryResponse">
+
+      <wsdl:part name="activatecardsQueryReturn" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="activatecards_2Response">
+
+      <wsdl:part name="activatecards_2Return" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="doJdfetchPhotoRequest">
+
+      <wsdl:part name="callFuncInfoA" type="tns1:CallFuncInfoA">
+
+      </wsdl:part>
+
+      <wsdl:part name="orderId" type="xsd:string">
+
+      </wsdl:part>
+
+      <wsdl:part name="seqId" type="xsd:long">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="intentionGatherResponse">
+
+      <wsdl:part name="intentionGatherReturn" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="syncPayInfoResponse">
+
+      <wsdl:part name="syncPayInfoReturn" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="offlineOrderCallbackRequest">
+
+      <wsdl:part name="requestXml" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="checkFraudInvolvedReportResponse">
+
+      <wsdl:part name="checkFraudInvolvedReportReturn" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="accountCancelCheckResponse">
+
+      <wsdl:part name="accountCancelCheckReturn" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="completeCallbackSmsResponse">
+
+      <wsdl:part name="completeCallbackSmsReturn" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addActivityRecordRequest">
+
+      <wsdl:part name="requestXml" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="orderquerysimpleResponse">
+
+      <wsdl:part name="orderquerysimpleReturn" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="activatecardsResponse">
+
+      <wsdl:part name="activatecardsReturn" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="factorOrderQueryRequest">
+
+      <wsdl:part name="requestXml" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="orderyncResponse">
+
+      <wsdl:part name="orderyncReturn" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="ordervalidateRequest">
+
+      <wsdl:part name="requestXml" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="broadBandCallbackResponse">
+
+      <wsdl:part name="broadBandCallbackReturn" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addActivityRecordResponse">
+
+      <wsdl:part name="addActivityRecordReturn" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="orderlistRequest">
+
+      <wsdl:part name="requestXml" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="installDeliveryUpdateRequest">
+
+      <wsdl:part name="requestXml" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="completeSmsResponse">
+
+      <wsdl:part name="completeSmsReturn" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="checkOfferDetailResponse">
+
+      <wsdl:part name="checkOfferDetailReturn" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="doJtFetchPhotoResponse">
+
+      <wsdl:part name="doJtFetchPhotoReturn" type="xsd:base64Binary">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="orderqueryallRequest">
+
+      <wsdl:part name="requestXml" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="queryactivitylistResponse">
+
+      <wsdl:part name="queryactivitylistReturn" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="gztCheckRequest">
+
+      <wsdl:part name="requestXml" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="doJdfetchPhotoResponse">
+
+      <wsdl:part name="doJdfetchPhotoReturn" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="orderqueryallResponse">
+
+      <wsdl:part name="orderqueryallReturn" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="httpInterfaceOfGetResponse">
+
+      <wsdl:part name="httpInterfaceOfGetReturn" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="orderlistResponse">
+
+      <wsdl:part name="orderlistReturn" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="applyBuizCallbackResponse">
+
+      <wsdl:part name="applyBuizCallbackReturn" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="orderyncRequest">
+
+      <wsdl:part name="requestXml" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="queryIdcardAscriptionResponse">
+
+      <wsdl:part name="queryIdcardAscriptionReturn" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="smsordersendResponse">
+
+      <wsdl:part name="smsordersendReturn" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="syncRefundStatusResponse">
+
+      <wsdl:part name="syncRefundStatusReturn" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="makeupActivateInfoCheckRequest">
+
+      <wsdl:part name="requestXml" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="installDeliveryQueryRequest">
+
+      <wsdl:part name="requestXml" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="robotOrderCallbackResponse">
+
+      <wsdl:part name="robotOrderCallbackReturn" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="syncPaymentRecordRequest">
+
+      <wsdl:part name="requestXml" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="applyBuizCallbackRequest">
+
+      <wsdl:part name="requestXml" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="qryOfferDetailListResponse">
+
+      <wsdl:part name="qryOfferDetailListReturn" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="orderSyncResponse">
+
+      <wsdl:part name="orderSyncReturn" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="activatecardsRequest">
+
+      <wsdl:part name="requestXml" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="orderAndBossIdenticalRequest">
+
+      <wsdl:part name="requestXml" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="idCardUrlQueryRequest">
+
+      <wsdl:part name="requestXml" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="routeQueryRequest">
+
+      <wsdl:part name="requestXml" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="gztCheckResponse">
+
+      <wsdl:part name="gztCheckReturn" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="activatecardsQueryRequest">
+
+      <wsdl:part name="requestXml" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="checkFraudInvolvedReportRequest">
+
+      <wsdl:part name="requestXml" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="activatecardsUpdateRequest">
+
+      <wsdl:part name="requestXml" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="syncRefundStatusRequest">
+
+      <wsdl:part name="requestXml" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="activatecards_2Request">
+
+      <wsdl:part name="requestXml" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="orderSyncRequest">
+
+      <wsdl:part name="requestXml" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="queryactivitylistRequest">
+
+      <wsdl:part name="requestXml" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="accountCancelCheckRequest">
+
+      <wsdl:part name="requestXml" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="doJtFetchPhotoRequest">
+
+      <wsdl:part name="callFuncInfoA" type="tns1:CallFuncInfoA">
+
+      </wsdl:part>
+
+      <wsdl:part name="url" type="xsd:string">
+
+      </wsdl:part>
+
+      <wsdl:part name="type" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="OrderEWS">
+
+      <wsdl:operation name="gztCheck" parameterOrder="requestXml">
+
+         <wsdl:input message="impl:gztCheckRequest" name="gztCheckRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:gztCheckResponse" name="gztCheckResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="orderSync" parameterOrder="requestXml">
+
+         <wsdl:input message="impl:orderSyncRequest" name="orderSyncRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:orderSyncResponse" name="orderSyncResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="broadBandCallback" parameterOrder="requestXml">
+
+         <wsdl:input message="impl:broadBandCallbackRequest" name="broadBandCallbackRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:broadBandCallbackResponse" name="broadBandCallbackResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="routeQuery" parameterOrder="requestXml">
+
+         <wsdl:input message="impl:routeQueryRequest" name="routeQueryRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:routeQueryResponse" name="routeQueryResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="accountCancelCheck" parameterOrder="requestXml">
+
+         <wsdl:input message="impl:accountCancelCheckRequest" name="accountCancelCheckRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:accountCancelCheckResponse" name="accountCancelCheckResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="activatecards_2" parameterOrder="requestXml">
+
+         <wsdl:input message="impl:activatecards_2Request" name="activatecards_2Request">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:activatecards_2Response" name="activatecards_2Response">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="queryAccnbrAscription" parameterOrder="requestXml">
+
+         <wsdl:input message="impl:queryAccnbrAscriptionRequest" name="queryAccnbrAscriptionRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:queryAccnbrAscriptionResponse" name="queryAccnbrAscriptionResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="activatecardsUpdate" parameterOrder="requestXml">
+
+         <wsdl:input message="impl:activatecardsUpdateRequest" name="activatecardsUpdateRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:activatecardsUpdateResponse" name="activatecardsUpdateResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="doJdCallBack" parameterOrder="callFuncInfoA orderId phone cmtId bookTime">
+
+         <wsdl:input message="impl:doJdCallBackRequest" name="doJdCallBackRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:doJdCallBackResponse" name="doJdCallBackResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="doJdfetchPhoto" parameterOrder="callFuncInfoA orderId seqId">
+
+         <wsdl:input message="impl:doJdfetchPhotoRequest" name="doJdfetchPhotoRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:doJdfetchPhotoResponse" name="doJdfetchPhotoResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="doTbFetchPhoto" parameterOrder="callFuncInfoA orderId index">
+
+         <wsdl:input message="impl:doTbFetchPhotoRequest" name="doTbFetchPhotoRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:doTbFetchPhotoResponse" name="doTbFetchPhotoResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="doActivityRecord" parameterOrder="requestXml">
+
+         <wsdl:input message="impl:doActivityRecordRequest" name="doActivityRecordRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:doActivityRecordResponse" name="doActivityRecordResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="addActivityRecord" parameterOrder="requestXml">
+
+         <wsdl:input message="impl:addActivityRecordRequest" name="addActivityRecordRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:addActivityRecordResponse" name="addActivityRecordResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="queryAddressAscription" parameterOrder="requestXml">
+
+         <wsdl:input message="impl:queryAddressAscriptionRequest" name="queryAddressAscriptionRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:queryAddressAscriptionResponse" name="queryAddressAscriptionResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="activatecardsQuery" parameterOrder="requestXml">
+
+         <wsdl:input message="impl:activatecardsQueryRequest" name="activatecardsQueryRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:activatecardsQueryResponse" name="activatecardsQueryResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="applyBuizCallback" parameterOrder="requestXml">
+
+         <wsdl:input message="impl:applyBuizCallbackRequest" name="applyBuizCallbackRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:applyBuizCallbackResponse" name="applyBuizCallbackResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="bwtYxIntSenceList" parameterOrder="requestXml">
+
+         <wsdl:input message="impl:bwtYxIntSenceListRequest" name="bwtYxIntSenceListRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:bwtYxIntSenceListResponse" name="bwtYxIntSenceListResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="checkOfferDetail" parameterOrder="requestXml">
+
+         <wsdl:input message="impl:checkOfferDetailRequest" name="checkOfferDetailRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:checkOfferDetailResponse" name="checkOfferDetailResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="checkFraudInvolvedReport" parameterOrder="requestXml">
+
+         <wsdl:input message="impl:checkFraudInvolvedReportRequest" name="checkFraudInvolvedReportRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:checkFraudInvolvedReportResponse" name="checkFraudInvolvedReportResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="factorOrderQuery" parameterOrder="requestXml">
+
+         <wsdl:input message="impl:factorOrderQueryRequest" name="factorOrderQueryRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:factorOrderQueryResponse" name="factorOrderQueryResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="intentionGather" parameterOrder="requestXml">
+
+         <wsdl:input message="impl:intentionGatherRequest" name="intentionGatherRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:intentionGatherResponse" name="intentionGatherResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="queryIdcardAscription" parameterOrder="requestXml">
+
+         <wsdl:input message="impl:queryIdcardAscriptionRequest" name="queryIdcardAscriptionRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:queryIdcardAscriptionResponse" name="queryIdcardAscriptionResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="installDeliveryQuery" parameterOrder="requestXml">
+
+         <wsdl:input message="impl:installDeliveryQueryRequest" name="installDeliveryQueryRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:installDeliveryQueryResponse" name="installDeliveryQueryResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="installDeliveryUpdate" parameterOrder="requestXml">
+
+         <wsdl:input message="impl:installDeliveryUpdateRequest" name="installDeliveryUpdateRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:installDeliveryUpdateResponse" name="installDeliveryUpdateResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="makeupActivateInfoCheck" parameterOrder="requestXml">
+
+         <wsdl:input message="impl:makeupActivateInfoCheckRequest" name="makeupActivateInfoCheckRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:makeupActivateInfoCheckResponse" name="makeupActivateInfoCheckResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="makeupActivateInfo" parameterOrder="requestXml">
+
+         <wsdl:input message="impl:makeupActivateInfoRequest" name="makeupActivateInfoRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:makeupActivateInfoResponse" name="makeupActivateInfoResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="queryactivitylist" parameterOrder="requestXml">
+
+         <wsdl:input message="impl:queryactivitylistRequest" name="queryactivitylistRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:queryactivitylistResponse" name="queryactivitylistResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="httpInterfaceOfGet" parameterOrder="requestXml">
+
+         <wsdl:input message="impl:httpInterfaceOfGetRequest" name="httpInterfaceOfGetRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:httpInterfaceOfGetResponse" name="httpInterfaceOfGetResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="orderlist" parameterOrder="requestXml">
+
+         <wsdl:input message="impl:orderlistRequest" name="orderlistRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:orderlistResponse" name="orderlistResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="orderqueryall" parameterOrder="requestXml">
+
+         <wsdl:input message="impl:orderqueryallRequest" name="orderqueryallRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:orderqueryallResponse" name="orderqueryallResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="offlineOrderCallback" parameterOrder="requestXml">
+
+         <wsdl:input message="impl:offlineOrderCallbackRequest" name="offlineOrderCallbackRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:offlineOrderCallbackResponse" name="offlineOrderCallbackResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="orderquerysimple" parameterOrder="requestXml">
+
+         <wsdl:input message="impl:orderquerysimpleRequest" name="orderquerysimpleRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:orderquerysimpleResponse" name="orderquerysimpleResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="orderAndBossIdentical" parameterOrder="requestXml">
+
+         <wsdl:input message="impl:orderAndBossIdenticalRequest" name="orderAndBossIdenticalRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:orderAndBossIdenticalResponse" name="orderAndBossIdenticalResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="queryusercard" parameterOrder="requestXml">
+
+         <wsdl:input message="impl:queryusercardRequest" name="queryusercardRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:queryusercardResponse" name="queryusercardResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="syncRefundStatus" parameterOrder="requestXml">
+
+         <wsdl:input message="impl:syncRefundStatusRequest" name="syncRefundStatusRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:syncRefundStatusResponse" name="syncRefundStatusResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="queryActivityConfig" parameterOrder="requestXml">
+
+         <wsdl:input message="impl:queryActivityConfigRequest" name="queryActivityConfigRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:queryActivityConfigResponse" name="queryActivityConfigResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="syncPayInfo" parameterOrder="requestXml">
+
+         <wsdl:input message="impl:syncPayInfoRequest" name="syncPayInfoRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:syncPayInfoResponse" name="syncPayInfoResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="robotOrderCallback" parameterOrder="requestXml">
+
+         <wsdl:input message="impl:robotOrderCallbackRequest" name="robotOrderCallbackRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:robotOrderCallbackResponse" name="robotOrderCallbackResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="scanOrderQuery" parameterOrder="requestXml">
+
+         <wsdl:input message="impl:scanOrderQueryRequest" name="scanOrderQueryRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:scanOrderQueryResponse" name="scanOrderQueryResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="syncPaymentRecord" parameterOrder="requestXml">
+
+         <wsdl:input message="impl:syncPaymentRecordRequest" name="syncPaymentRecordRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:syncPaymentRecordResponse" name="syncPaymentRecordResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="smsordersend" parameterOrder="requestXml">
+
+         <wsdl:input message="impl:smsordersendRequest" name="smsordersendRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:smsordersendResponse" name="smsordersendResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="activatecards" parameterOrder="requestXml">
+
+         <wsdl:input message="impl:activatecardsRequest" name="activatecardsRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:activatecardsResponse" name="activatecardsResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="orderync" parameterOrder="requestXml">
+
+         <wsdl:input message="impl:orderyncRequest" name="orderyncRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:orderyncResponse" name="orderyncResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="orderupdate" parameterOrder="requestXml">
+
+         <wsdl:input message="impl:orderupdateRequest" name="orderupdateRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:orderupdateResponse" name="orderupdateResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="ordervalidate" parameterOrder="requestXml">
+
+         <wsdl:input message="impl:ordervalidateRequest" name="ordervalidateRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:ordervalidateResponse" name="ordervalidateResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="checkActivateVCard" parameterOrder="requestXml">
+
+         <wsdl:input message="impl:checkActivateVCardRequest" name="checkActivateVCardRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:checkActivateVCardResponse" name="checkActivateVCardResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="doJtFetchPhoto" parameterOrder="callFuncInfoA url type">
+
+         <wsdl:input message="impl:doJtFetchPhotoRequest" name="doJtFetchPhotoRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:doJtFetchPhotoResponse" name="doJtFetchPhotoResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="completeSms" parameterOrder="requestXml">
+
+         <wsdl:input message="impl:completeSmsRequest" name="completeSmsRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:completeSmsResponse" name="completeSmsResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="completeCallbackSms" parameterOrder="requestXml">
+
+         <wsdl:input message="impl:completeCallbackSmsRequest" name="completeCallbackSmsRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:completeCallbackSmsResponse" name="completeCallbackSmsResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="checkKDPayRecord" parameterOrder="requestXml">
+
+         <wsdl:input message="impl:checkKDPayRecordRequest" name="checkKDPayRecordRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:checkKDPayRecordResponse" name="checkKDPayRecordResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="idCardUrlQuery" parameterOrder="requestXml">
+
+         <wsdl:input message="impl:idCardUrlQueryRequest" name="idCardUrlQueryRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:idCardUrlQueryResponse" name="idCardUrlQueryResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="idCardUrlUpload" parameterOrder="requestXml">
+
+         <wsdl:input message="impl:idCardUrlUploadRequest" name="idCardUrlUploadRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:idCardUrlUploadResponse" name="idCardUrlUploadResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="qryOfferDetailList" parameterOrder="requestXml">
+
+         <wsdl:input message="impl:qryOfferDetailListRequest" name="qryOfferDetailListRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:qryOfferDetailListResponse" name="qryOfferDetailListResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="OrderEWSSoapBinding" type="impl:OrderEWS">
+
+      <wsdlsoap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="gztCheck">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="gztCheckRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://external.webservice.dmz.inter.hb.esmp.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="gztCheckResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://172.15.8.225:9011/interDmz/services/OrderEWS" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="orderSync">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="orderSyncRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://external.webservice.dmz.inter.hb.esmp.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="orderSyncResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://172.15.8.225:9011/interDmz/services/OrderEWS" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="broadBandCallback">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="broadBandCallbackRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://external.webservice.dmz.inter.hb.esmp.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="broadBandCallbackResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://172.15.8.225:9011/interDmz/services/OrderEWS" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="routeQuery">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="routeQueryRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://external.webservice.dmz.inter.hb.esmp.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="routeQueryResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://172.15.8.225:9011/interDmz/services/OrderEWS" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="accountCancelCheck">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="accountCancelCheckRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://external.webservice.dmz.inter.hb.esmp.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="accountCancelCheckResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://172.15.8.225:9011/interDmz/services/OrderEWS" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="activatecards_2">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="activatecards_2Request">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://external.webservice.dmz.inter.hb.esmp.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="activatecards_2Response">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://172.15.8.225:9011/interDmz/services/OrderEWS" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="queryAccnbrAscription">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="queryAccnbrAscriptionRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://external.webservice.dmz.inter.hb.esmp.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="queryAccnbrAscriptionResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://172.15.8.225:9011/interDmz/services/OrderEWS" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="activatecardsUpdate">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="activatecardsUpdateRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://external.webservice.dmz.inter.hb.esmp.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="activatecardsUpdateResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://172.15.8.225:9011/interDmz/services/OrderEWS" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="doJdCallBack">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="doJdCallBackRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://external.webservice.dmz.inter.hb.esmp.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="doJdCallBackResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://172.15.8.225:9011/interDmz/services/OrderEWS" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="doJdfetchPhoto">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="doJdfetchPhotoRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://external.webservice.dmz.inter.hb.esmp.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="doJdfetchPhotoResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://172.15.8.225:9011/interDmz/services/OrderEWS" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="doTbFetchPhoto">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="doTbFetchPhotoRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://external.webservice.dmz.inter.hb.esmp.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="doTbFetchPhotoResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://172.15.8.225:9011/interDmz/services/OrderEWS" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="doActivityRecord">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="doActivityRecordRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://external.webservice.dmz.inter.hb.esmp.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="doActivityRecordResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://172.15.8.225:9011/interDmz/services/OrderEWS" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="addActivityRecord">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="addActivityRecordRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://external.webservice.dmz.inter.hb.esmp.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="addActivityRecordResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://172.15.8.225:9011/interDmz/services/OrderEWS" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="queryAddressAscription">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="queryAddressAscriptionRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://external.webservice.dmz.inter.hb.esmp.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="queryAddressAscriptionResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://172.15.8.225:9011/interDmz/services/OrderEWS" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="activatecardsQuery">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="activatecardsQueryRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://external.webservice.dmz.inter.hb.esmp.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="activatecardsQueryResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://172.15.8.225:9011/interDmz/services/OrderEWS" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="applyBuizCallback">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="applyBuizCallbackRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://external.webservice.dmz.inter.hb.esmp.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="applyBuizCallbackResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://172.15.8.225:9011/interDmz/services/OrderEWS" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="bwtYxIntSenceList">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="bwtYxIntSenceListRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://external.webservice.dmz.inter.hb.esmp.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="bwtYxIntSenceListResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://172.15.8.225:9011/interDmz/services/OrderEWS" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="checkOfferDetail">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="checkOfferDetailRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://external.webservice.dmz.inter.hb.esmp.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="checkOfferDetailResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://172.15.8.225:9011/interDmz/services/OrderEWS" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="checkFraudInvolvedReport">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="checkFraudInvolvedReportRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://external.webservice.dmz.inter.hb.esmp.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="checkFraudInvolvedReportResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://172.15.8.225:9011/interDmz/services/OrderEWS" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="factorOrderQuery">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="factorOrderQueryRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://external.webservice.dmz.inter.hb.esmp.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="factorOrderQueryResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://172.15.8.225:9011/interDmz/services/OrderEWS" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="intentionGather">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="intentionGatherRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://external.webservice.dmz.inter.hb.esmp.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="intentionGatherResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://172.15.8.225:9011/interDmz/services/OrderEWS" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="queryIdcardAscription">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="queryIdcardAscriptionRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://external.webservice.dmz.inter.hb.esmp.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="queryIdcardAscriptionResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://172.15.8.225:9011/interDmz/services/OrderEWS" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="installDeliveryQuery">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="installDeliveryQueryRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://external.webservice.dmz.inter.hb.esmp.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="installDeliveryQueryResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://172.15.8.225:9011/interDmz/services/OrderEWS" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="installDeliveryUpdate">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="installDeliveryUpdateRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://external.webservice.dmz.inter.hb.esmp.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="installDeliveryUpdateResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://172.15.8.225:9011/interDmz/services/OrderEWS" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="makeupActivateInfoCheck">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="makeupActivateInfoCheckRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://external.webservice.dmz.inter.hb.esmp.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="makeupActivateInfoCheckResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://172.15.8.225:9011/interDmz/services/OrderEWS" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="makeupActivateInfo">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="makeupActivateInfoRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://external.webservice.dmz.inter.hb.esmp.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="makeupActivateInfoResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://172.15.8.225:9011/interDmz/services/OrderEWS" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="queryactivitylist">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="queryactivitylistRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://external.webservice.dmz.inter.hb.esmp.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="queryactivitylistResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://172.15.8.225:9011/interDmz/services/OrderEWS" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="httpInterfaceOfGet">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="httpInterfaceOfGetRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://external.webservice.dmz.inter.hb.esmp.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="httpInterfaceOfGetResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://172.15.8.225:9011/interDmz/services/OrderEWS" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="orderlist">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="orderlistRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://external.webservice.dmz.inter.hb.esmp.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="orderlistResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://172.15.8.225:9011/interDmz/services/OrderEWS" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="orderqueryall">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="orderqueryallRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://external.webservice.dmz.inter.hb.esmp.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="orderqueryallResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://172.15.8.225:9011/interDmz/services/OrderEWS" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="offlineOrderCallback">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="offlineOrderCallbackRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://external.webservice.dmz.inter.hb.esmp.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="offlineOrderCallbackResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://172.15.8.225:9011/interDmz/services/OrderEWS" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="orderquerysimple">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="orderquerysimpleRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://external.webservice.dmz.inter.hb.esmp.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="orderquerysimpleResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://172.15.8.225:9011/interDmz/services/OrderEWS" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="orderAndBossIdentical">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="orderAndBossIdenticalRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://external.webservice.dmz.inter.hb.esmp.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="orderAndBossIdenticalResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://172.15.8.225:9011/interDmz/services/OrderEWS" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="queryusercard">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="queryusercardRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://external.webservice.dmz.inter.hb.esmp.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="queryusercardResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://172.15.8.225:9011/interDmz/services/OrderEWS" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="syncRefundStatus">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="syncRefundStatusRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://external.webservice.dmz.inter.hb.esmp.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="syncRefundStatusResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://172.15.8.225:9011/interDmz/services/OrderEWS" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="queryActivityConfig">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="queryActivityConfigRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://external.webservice.dmz.inter.hb.esmp.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="queryActivityConfigResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://172.15.8.225:9011/interDmz/services/OrderEWS" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="syncPayInfo">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="syncPayInfoRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://external.webservice.dmz.inter.hb.esmp.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="syncPayInfoResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://172.15.8.225:9011/interDmz/services/OrderEWS" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="robotOrderCallback">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="robotOrderCallbackRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://external.webservice.dmz.inter.hb.esmp.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="robotOrderCallbackResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://172.15.8.225:9011/interDmz/services/OrderEWS" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="scanOrderQuery">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="scanOrderQueryRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://external.webservice.dmz.inter.hb.esmp.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="scanOrderQueryResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://172.15.8.225:9011/interDmz/services/OrderEWS" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="syncPaymentRecord">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="syncPaymentRecordRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://external.webservice.dmz.inter.hb.esmp.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="syncPaymentRecordResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://172.15.8.225:9011/interDmz/services/OrderEWS" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="smsordersend">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="smsordersendRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://external.webservice.dmz.inter.hb.esmp.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="smsordersendResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://172.15.8.225:9011/interDmz/services/OrderEWS" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="activatecards">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="activatecardsRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://external.webservice.dmz.inter.hb.esmp.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="activatecardsResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://172.15.8.225:9011/interDmz/services/OrderEWS" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="orderync">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="orderyncRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://external.webservice.dmz.inter.hb.esmp.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="orderyncResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://172.15.8.225:9011/interDmz/services/OrderEWS" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="orderupdate">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="orderupdateRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://external.webservice.dmz.inter.hb.esmp.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="orderupdateResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://172.15.8.225:9011/interDmz/services/OrderEWS" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="ordervalidate">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="ordervalidateRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://external.webservice.dmz.inter.hb.esmp.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="ordervalidateResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://172.15.8.225:9011/interDmz/services/OrderEWS" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="checkActivateVCard">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="checkActivateVCardRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://external.webservice.dmz.inter.hb.esmp.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="checkActivateVCardResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://172.15.8.225:9011/interDmz/services/OrderEWS" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="doJtFetchPhoto">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="doJtFetchPhotoRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://external.webservice.dmz.inter.hb.esmp.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="doJtFetchPhotoResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://172.15.8.225:9011/interDmz/services/OrderEWS" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="completeSms">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="completeSmsRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://external.webservice.dmz.inter.hb.esmp.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="completeSmsResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://172.15.8.225:9011/interDmz/services/OrderEWS" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="completeCallbackSms">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="completeCallbackSmsRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://external.webservice.dmz.inter.hb.esmp.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="completeCallbackSmsResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://172.15.8.225:9011/interDmz/services/OrderEWS" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="checkKDPayRecord">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="checkKDPayRecordRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://external.webservice.dmz.inter.hb.esmp.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="checkKDPayRecordResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://172.15.8.225:9011/interDmz/services/OrderEWS" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="idCardUrlQuery">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="idCardUrlQueryRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://external.webservice.dmz.inter.hb.esmp.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="idCardUrlQueryResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://172.15.8.225:9011/interDmz/services/OrderEWS" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="idCardUrlUpload">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="idCardUrlUploadRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://external.webservice.dmz.inter.hb.esmp.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="idCardUrlUploadResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://172.15.8.225:9011/interDmz/services/OrderEWS" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="qryOfferDetailList">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="qryOfferDetailListRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://external.webservice.dmz.inter.hb.esmp.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="qryOfferDetailListResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://172.15.8.225:9011/interDmz/services/OrderEWS" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="OrderEWSService">
+
+      <wsdl:port binding="impl:OrderEWSSoapBinding" name="OrderEWS">
+
+         <wsdlsoap:address location="http://61.183.0.37:9010/interDmz/services/OrderEWS"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

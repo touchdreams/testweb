@@ -1,7 +1,5 @@
 package com.touchdreams.simple.configuration;
 
-import com.touchdreams.simple.interceptor.AInterceptor;
-import com.touchdreams.simple.interceptor.BInterceptor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
@@ -16,8 +14,8 @@ public class WebMvcConfig extends WebMvcConfigurationSupport {
 
     @Override
     protected void addInterceptors(InterceptorRegistry registry) {
-//        registry.addInterceptor(new AInterceptor()).addPathPatterns("/**").excludePathPatterns("/test");
-//        registry.addInterceptor(new BInterceptor()).addPathPatterns("/**").excludePathPatterns("/test");
+//        registry.addInterceptor(new AInterceptor()).addPathPatterns("/**").excludePathPatterns("/simple");
+//        registry.addInterceptor(new BInterceptor()).addPathPatterns("/**").excludePathPatterns("/simple");
         super.addInterceptors(registry);
     }
 
