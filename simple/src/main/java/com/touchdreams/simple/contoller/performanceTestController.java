@@ -14,14 +14,11 @@ import java.util.concurrent.atomic.AtomicInteger;
 @RequestMapping("/performanceTest")
 public class performanceTestController {
 
-    private AtomicInteger threads = new AtomicInteger();
 
     @RequestMapping("/test1")
     public Map<String, String> test1() {
-        threads.incrementAndGet();
-        System.out.println("tomcat 线程数：" + threads);
         try {
-            Thread.sleep(100000000);
+            Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
