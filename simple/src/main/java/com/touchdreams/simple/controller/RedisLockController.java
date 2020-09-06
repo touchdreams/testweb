@@ -15,6 +15,8 @@ import java.util.concurrent.locks.Lock;
 @RestController
 @RequestMapping("/redisLock")
 public class RedisLockController {
+    int lockTime = 0;
+    int unlockTime = 0;
 
     @Autowired
     private RedisLockRegistry redisLockRegistry;
@@ -24,10 +26,12 @@ public class RedisLockController {
         Lock lock = redisLockRegistry.obtain("REDIS_LOCK_KEY");
         try {
             if (lock.tryLock()) {
-                System.out.println(Thread.currentThread().getName() + "获取到锁------------");
+                lockTime++;
+                System.out.println(Thread.currentThread().getName() + "获取到锁------------"+lockTime);
                 Thread.sleep(5000);
                 lock.unlock();
-                System.out.println(Thread.currentThread().getName() + "释放锁");
+                unlockTime++;
+                System.out.println(Thread.currentThread().getName() + "释放锁"+unlockTime);
             } else {
                 System.out.println(Thread.currentThread().getName() + "未获取到锁");
             }
