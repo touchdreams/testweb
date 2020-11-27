@@ -10,7 +10,10 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 
 /**
  * Created by jinyh on 2020-5-14.
@@ -67,11 +70,34 @@ public class AsyncController {
     public String asyncFutureMethod() throws Exception {
         long start = System.currentTimeMillis();
         LOGGER.info("1");
-        Future<String> result = asyncService.asyncFutureMethod();
-        Future<String> result1 = asyncService.asyncFutureMethod1();
+        Future<String> future = asyncService.asyncFutureMethod();
         LOGGER.info("4");
-        LOGGER.info("result={},result1={},costtime={}", result.get(), result1.get(),System.currentTimeMillis()-start);
-        return result.get();
+        String result = future.get();
+        LOGGER.info("result={},costtime={}", result,
+                System.currentTimeMillis()-start);
+        return result;
+    }
+
+    @RequestMapping("/asyncFutureMethodWithTimeout")
+    public String asyncFutureMethodWithTimeout() throws Exception {
+        long start = System.currentTimeMillis();
+        LOGGER.info("1");
+        Future<String> future = asyncService.asyncFutureMethod();
+        LOGGER.info("4");
+
+        try {
+            String result = future.get(3, TimeUnit.SECONDS);
+            LOGGER.info("result={},costtime={}", result,
+                    System.currentTimeMillis()-start);
+            return result;
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (TimeoutException e) {
+            e.printStackTrace();
+        }
+        return "TimeoutException";
     }
 
 
