@@ -73,9 +73,10 @@ public class AsyncController {
         Future<String> future = asyncService.asyncFutureMethod();
         LOGGER.info("4");
         String result = future.get();
+//        String result = FutureResultUtils.get(future);
         LOGGER.info("result={},costtime={}", result,
                 System.currentTimeMillis()-start);
-        return result;
+        return result == null?"fail":result;
     }
 
     @RequestMapping("/asyncFutureMethodWithTimeout")
@@ -86,7 +87,7 @@ public class AsyncController {
         LOGGER.info("4");
 
         try {
-            String result = future.get(3, TimeUnit.SECONDS);
+            String result = future.get(1, TimeUnit.SECONDS);
             LOGGER.info("result={},costtime={}", result,
                     System.currentTimeMillis()-start);
             return result;
