@@ -1,6 +1,7 @@
 package com.touchdreams.simple.controller;
 
 import com.touchdreams.simple.service.AsyncService;
+import com.touchdreams.simple.utils.FutureResultUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -72,8 +73,13 @@ public class AsyncController {
         LOGGER.info("1");
         Future<String> future = asyncService.asyncFutureMethod();
         LOGGER.info("4");
-        String result = future.get();
-//        String result = FutureResultUtils.get(future);
+//        String result = future.get();
+        String result = FutureResultUtils.get(future);
+
+        Future<String> future1 = asyncService.asyncFutureMethod();
+        LOGGER.info("5");
+//        String result = future.get();
+        String result1 = FutureResultUtils.get(future1);
         LOGGER.info("result={},costtime={}", result,
                 System.currentTimeMillis()-start);
         return result == null?"fail":result;
