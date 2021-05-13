@@ -1,22 +1,25 @@
 package com.touchdreams.simple;
 
+import com.alibaba.fastjson.JSON;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.redis.core.BoundListOperations;
-import org.springframework.data.redis.core.ListOperations;
-import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.*;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 /**
- * redis测试类
- * Created by jyh on 2020/11/15.
+ * redis测试类 Created by jyh on 2020/11/15.
  */
 public class RedisTemplateTest extends SimpleApplicationTests {
 
     @Autowired
     private RedisTemplate redisTemplate;
+    @Autowired
+    private StringRedisTemplate stringRedisTemplate;
+
+    @Autowired
+    private RedisTemplate redisSessionTemplate;
 
     @Test
     public void getExpireTest() throws Exception {
@@ -30,16 +33,16 @@ public class RedisTemplateTest extends SimpleApplicationTests {
 
     @Test
     public void ListOperations() throws Exception {
-        //1、通过redisTemplate设置值
+        // 1、通过redisTemplate设置值
         redisTemplate.boundListOps("listKey").leftPush("listLeftValue1");
         redisTemplate.boundListOps("listKey").leftPush("listRightValue2");
 
-        //2、通过BoundValueOperations设置值
+        // 2、通过BoundValueOperations设置值
         BoundListOperations listKey = redisTemplate.boundListOps("listKey");
         listKey.leftPush("listLeftValue3");
         listKey.leftPush("listRightValue4");
 
-        //3、通过ValueOperations设置值
+        // 3、通过ValueOperations设置值
         ListOperations opsList = redisTemplate.opsForList();
         opsList.leftPush("listKey", "listLeftValue5");
         opsList.leftPush("listKey", "listRightValue6");
@@ -68,11 +71,19 @@ public class RedisTemplateTest extends SimpleApplicationTests {
         for (Object o : listKey.range(0, 100)) {
             System.out.println(o);
         }
-        for (int i = 0; i <10 ; i++) {
-            System.out.println("index: "+i+" |value: "+listKey.index(i));
+        for (int i = 0; i < 10; i++) {
+            System.out.println("index: " + i + " |value: " + listKey.index(i));
         }
         redisTemplate.delete("listKey");
+    }
 
+    @Test
+    public void getRedisSessionValue() {
+        String sessionId = "21a5faa1-b7fb-4035-b2bd-c09cfedce9a9";
+        BoundHashOperations operations = redisSessionTemplate.boundHashOps("spring:session:sessions:" + sessionId);
+        System.out.println(JSON.toJSONString(operations.entries()));
+        BoundHashOperations operations1 = redisTemplate.boundHashOps("spring:session:sessions:" + sessionId);
+        System.out.println(JSON.toJSONString(operations1.entries()));
     }
 
 
